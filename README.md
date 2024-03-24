@@ -2,7 +2,7 @@
 
 Detta är mitt kodtest som jag har gjort på totalt 6 timmar. Följ gärna min `guide` om hur du installerar och kör projektet på din egna dator!
 
-Starta först servern:
+Klona detta projekt till din egna enhet och navigera till projektet i valfri terminal. Sedan startar du servern **(Se nedan)**
 
 ```bash
 npm run dev
