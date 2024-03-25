@@ -1,4 +1,4 @@
-# Hej SBAB-teamet, **Furkan** här!
+# Hej teamet, **Furkan** här!
 
 Detta är mitt kodtest som jag har gjort på totalt 6 timmar. Följ gärna min guide om hur du installerar och kör projektet på din egna dator!
 
