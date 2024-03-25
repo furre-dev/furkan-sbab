@@ -1,6 +1,6 @@
 "use client"
 
-import { numberWithSpaces, stringNumberToNumber } from "@/utils/stringsAndNumbers";
+import { numberWithSpaces, stringNumberToNumber } from "@/utils/convertingFuncs";
 import { InputType } from "@/utils/inputTypes";
 import { useState } from "react";
 import { formatMonthsIntoYears } from "@/utils/formatMonthsIntoYears";
@@ -12,7 +12,7 @@ export default function DefaultInput(props: InputType) {
     shownValue: null,
   })
 
-  const numberInputOnChange = (input: string) => {
+  const handleNumberOnChange = (input: string) => {
     const inputToNumber = stringNumberToNumber(input)
     const shownNumber = numberWithSpaces(inputToNumber)
 
@@ -33,7 +33,7 @@ export default function DefaultInput(props: InputType) {
             value={numberInput.shownValue ?? ""}
             onChange={(e) => {
               props.onChange && props.onChange(stringNumberToNumber(e.target.value));
-              numberInputOnChange(e.target.value)
+              handleNumberOnChange(e.target.value)
             }}
             placeholder="2 000 000"
             className=" border border-gray-400 p-2 w-full" />
