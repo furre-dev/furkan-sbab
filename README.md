@@ -7,6 +7,10 @@ Klona detta projekt till din egna enhet och navigera till projektet i valfri ter
 > _Behöver du hjälp med att klona ett GitHub repository? [Klicka här](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)_
 
 ```bash
+npm install
+```
+
+```bash
 npm run dev
 # eller
 yarn dev
