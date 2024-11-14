@@ -3,7 +3,7 @@ import Calculations from "./smallerSections/Calculations";
 import ErrorPopup from "./smallerSections/ErrorPopup";
 
 export default async function CalculateSection() {
-  const { inputArray, error } = await getInputOptions()
+  const { inputArray, error } = await getInputOptions();
 
   if (error) {
     return <ErrorPopup />

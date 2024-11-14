@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import localFont from "next/font/local"
+import localFont from "next/font/local";
 
 const sbabFont = localFont({ src: "../../public/assets/fonts/SBAB-Regular.woff" })
 

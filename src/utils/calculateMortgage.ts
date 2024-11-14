@@ -1,5 +1,5 @@
-export function costPerMonth(loanAmount: number | null, mortgage_rate: number | null) {
-  if (!loanAmount || !mortgage_rate) {
+export function calculateMortgage(loanAmount: number | null, mortgage_rate: number | null) {
+  if (!loanAmount || !mortgage_rate || loanAmount < 100000) {
     return null
   }
 

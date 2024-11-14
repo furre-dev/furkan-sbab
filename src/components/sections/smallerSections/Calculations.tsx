@@ -1,10 +1,11 @@
 "use client"
 import DefaultInput from "@/components/inputs/DefaultInput";
-import { costPerMonth } from "@/utils/calculateMortgage";
+import { calculateMortgage } from "@/utils/calculateMortgage";
 import { InputType } from "@/utils/inputTypes";
 import { useState } from "react";
 import CompareSVG from "@/public/assets/images/Compare.svg"
 import Image from "next/image";
+import { numberWithSpaces } from "@/utils/stringsAndNumbers";
 
 type MortgageType = {
   loanAmount: null | number,
@@ -18,6 +19,8 @@ export default function Calculations({ inputArray }: { inputArray: InputType[] }
     binding_period_in_months: null,
     mortgage_rate: null
   })
+
+  console.log(inputArray)
 
   function handleLoanInput(amount: number) {
     //om "amount" är av typ NaN (Not a number) returnera NULL. Inte nödvändigt men en safety check.
@@ -37,6 +40,9 @@ export default function Calculations({ inputArray }: { inputArray: InputType[] }
     })
   }
 
+  const costPerMonth = calculateMortgage(mortgageInfo.loanAmount, mortgageInfo.mortgage_rate);
+  const cost = costPerMonth ? numberWithSpaces(costPerMonth) : "-"
+
   return (
     <>
       <div className="flex flex-col space-y-5">
@@ -54,7 +60,9 @@ export default function Calculations({ inputArray }: { inputArray: InputType[] }
       <h2 className="mt-16 text-2xl font-semibold">Din räntekostnad - {mortgageInfo.mortgage_rate}%</h2>
       <hr className="mt-4 mb-3" />
       <div className="flex flex-col-reverse md:flex-row justify-between items-center">
-        <h2 className="font-extrabold text-5xl md:text-6xl mt-10">{`${costPerMonth(mortgageInfo.loanAmount, mortgageInfo.mortgage_rate) ?? "-"} kr / mån`}</h2>
+        <h2 className="font-extrabold text-5xl md:text-6xl mt-10">
+          {`${cost} kr / mån`}
+        </h2>
         <Image className="h-[6.5rem] object-cover" alt="Comparing icon" src={CompareSVG} />
       </div>
     </>
