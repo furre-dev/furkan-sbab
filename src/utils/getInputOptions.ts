@@ -1,3 +1,4 @@
+import { IMortgageTypes } from "../../IMortgageTypes";
 import { InputType } from "./inputTypes";
 
 const defaultError = { inputArray: null, error: { message: "Could not get mortgage rates", source: "getInputOptions()" } };
@@ -5,12 +6,7 @@ const defaultError = { inputArray: null, error: { message: "Could not get mortga
 export async function getInputOptions() {
   try {
     const response = await fetch("https://developer.sbab.se/sandbox/api/interest-rates/2.0/mortgage-rates")
-    const data: {
-      mortgage_rates: {
-        binding_period_in_months:
-        number; mortgage_rate: number
-      }[]
-    } = await response.json()
+    const data: IMortgageTypes = await response.json()
     const mortgageOptions = data.mortgage_rates;
 
     //Error kommer att returnas ifall API responsen är okej men att vi inte får ut några mortgage_rates från API. Eller att mortgage_rates har längd av 0.

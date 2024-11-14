@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typegen": "curl https://developer.sbab.se/sandbox/api/interest-rates/2.0/mortgage-rates -o mortgage-rates.json && npx quicktype mortgage-rates.json --just-types --lang ts -o IMortgageTypes.ts && rm mortgage-rates.json"
   },
   "dependencies": {
     "@next/font": "^14.1.3",
