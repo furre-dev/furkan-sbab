@@ -1,5 +1,5 @@
-import { IMortgageTypes } from "../../IMortgageTypes";
 import { InputType } from "./inputTypes";
+import { IMortgageTypes } from "./types/IMortgageTypes";
 
 const defaultError = { inputArray: null, error: { message: "Could not get mortgage rates", source: "getInputOptions()" } };
 

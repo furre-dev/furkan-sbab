@@ -4,5 +4,5 @@ export interface IMortgageTypes {
 
 export interface MortgageRate {
     binding_period_in_months: number;
-    mortgage_rate: number;
+    mortgage_rate:            number;
 }
