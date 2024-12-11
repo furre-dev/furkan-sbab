@@ -10,6 +10,7 @@ export interface MortgageRate {
 export interface ComparisonType {
     bank_name: string
     rates: ComparisonRate[]
+    image_url: string;
 }
 
 export interface ComparisonRate {

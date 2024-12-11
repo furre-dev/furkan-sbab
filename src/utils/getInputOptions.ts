@@ -17,6 +17,8 @@ export async function getInputOptions() {
       return defaultError
     }
 
+    console.log(comparison_response)
+
     //* Åtanke i inputFields är att få ett dynamiskt sätt att rendera inputs. T.ex om vi får inputs från ett CMS *
     //Om det behövs lägger du till en ny input här och med lite setup så har du en fin och fungerande input. TS hjälper dig också så att du alltid skapar den korrekt.
     const inputArray: InputType[] = [
