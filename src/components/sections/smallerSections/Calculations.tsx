@@ -6,6 +6,8 @@ import { useState } from "react";
 import CompareSVG from "@/public/assets/images/Compare.svg"
 import Image from "next/image";
 import { numberWithSpaces } from "@/utils/stringsAndNumbers";
+import Comparisons from "./Comparisons";
+import { ComparisonType } from "@/utils/types/IMortgageTypes";
 
 type MortgageType = {
   loanAmount: null | number,
@@ -13,14 +15,12 @@ type MortgageType = {
   mortgage_rate: null | number
 }
 
-export default function Calculations({ inputArray }: { inputArray: InputType[] }) {
+export default function Calculations({ inputArray, comparisons }: { inputArray: InputType[]; comparisons: ComparisonType[] }) {
   const [mortgageInfo, setMortgageInfo] = useState<MortgageType>({
     loanAmount: null,
     binding_period_in_months: null,
     mortgage_rate: null
   })
-
-  console.log(inputArray)
 
   function handleLoanInput(amount: number) {
     //om "amount" är av typ NaN (Not a number) returnera NULL. Inte nödvändigt men en safety check.
@@ -65,6 +65,13 @@ export default function Calculations({ inputArray }: { inputArray: InputType[] }
         </h2>
         <Image className="h-[6.5rem] object-cover" alt="Comparing icon" src={CompareSVG} />
       </div>
+      {mortgageInfo.binding_period_in_months && mortgageInfo.loanAmount && mortgageInfo.mortgage_rate &&
+        <Comparisons
+          mortgage_rate={mortgageInfo.mortgage_rate}
+          comparisons={comparisons}
+          loanAmount={mortgageInfo.loanAmount}
+          binding_period={mortgageInfo.binding_period_in_months} />
+      }
     </>
   )
 }

@@ -1,3 +1,5 @@
+import { ComparisonType } from "./types/IMortgageTypes";
+
 export type InputType = TextInputType | SelectInputType
 
 type TextInputType = {

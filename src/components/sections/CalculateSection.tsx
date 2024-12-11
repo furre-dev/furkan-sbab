@@ -3,7 +3,7 @@ import Calculations from "./smallerSections/Calculations";
 import ErrorPopup from "./smallerSections/ErrorPopup";
 
 export default async function CalculateSection() {
-  const { inputArray, error } = await getInputOptions();
+  const { inputArray, comparisons, error } = await getInputOptions();
 
   if (error) {
     return <ErrorPopup />
@@ -13,7 +13,7 @@ export default async function CalculateSection() {
     <section className="mt-10 md:mt-20 w-full">
       <h2 className="text-xl md:text-2xl font-semibold">Få fram din räntekostnad direkt</h2>
       <hr className="mt-4 mb-8 mt:my-4" />
-      <Calculations inputArray={inputArray} />
+      <Calculations inputArray={inputArray} comparisons={comparisons} />
     </section>
   )
 }
