@@ -13,11 +13,11 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
   const rate_diff = currentRate.mortgage_rate - mortgage_rate;
 
   return (
-    <li className="pointer-events-none select-none">
-      <section className="py-3 px-4 bg-white border border-[#E8E8E8] min-w-[350px] shadow-lg">
+    <li className="pointer-events-none select-none min-w-[90%] [@media(min-width:400px)]:min-w-[350px]">
+      <section className="py-3 px-4 bg-white border border-[#E8E8E8] w-full shadow-lg">
         <article className="w-full">
           <div className="flex">
-            <figure className="w-12 h-12 rounded-full bg-black overflow-hidden" aria-hidden="true">
+            <figure className="min-w-12 h-12 rounded-full bg-black overflow-hidden" aria-hidden="true">
               <Image width={100} height={100} src={bank_data.image_url} alt={`${bank_data.bank_name} logga`} className="w-full h-full" />
             </figure>
             <header className="max-w-28 ml-2">
@@ -26,8 +26,8 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
                 Senast uppdaterad {currentRate.last_updated}
               </time>
             </header>
-            <aside className="flex justify-end flex-grow">
-              <p className="text-lg text-[#808080]">{cost} kr / mån</p>
+            <aside className="flex justify-end flex-grow text-right">
+              <p className="text-base [@media(min-width:400px)]:text-lg text-[#808080]">{cost} kr / mån</p>
             </aside>
           </div>
           <footer className="flex justify-between mt-4">

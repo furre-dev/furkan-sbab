@@ -5,7 +5,7 @@ import { MutableRefObject, useRef } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 
 
-export default function Comparisons({ comparisons, loanAmount, binding_period, mortgage_rate }: {
+export default function ComparisonSection({ comparisons, loanAmount, binding_period, mortgage_rate }: {
   comparisons: ComparisonType[],
   loanAmount: number,
   binding_period: number,
@@ -17,6 +17,7 @@ export default function Comparisons({ comparisons, loanAmount, binding_period, m
 
   const banks_array = comparisons.map((bank_data) => {
     const currentRate = bank_data.rates.find((rate) => rate.binding_period_in_months === binding_period);
+
     //if currentRate is valid and if SBAB mortgage is lower than Banks mortgage, retrun the Comparison.
     return currentRate && currentRate.mortgage_rate > mortgage_rate ? (
       <Comparison
@@ -31,7 +32,7 @@ export default function Comparisons({ comparisons, loanAmount, binding_period, m
     <>
       <hr className="mt-10 mb-8 mt:my-4" />
       <h4 className="font-semibold text-2xl">Jämför vår ränta med andra banker</h4>
-      <ul className="flex mt-6 space-x-5 pb-4 overflow-scroll relative
+      <ul className="flex mt-6 space-x-2 [@media(min-width:400px)]:space-x-5 pb-4 overflow-scroll relative
         [&::-webkit-scrollbar]:h-2
         [&::-webkit-scrollbar]:z-40
         [&::-webkit-scrollbar-track]:rounded-full

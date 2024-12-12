@@ -6,8 +6,8 @@ import { useState } from "react";
 import CompareSVG from "@/public/assets/images/Compare.svg"
 import Image from "next/image";
 import { numberWithSpaces } from "@/utils/stringsAndNumbers";
-import Comparisons from "./Comparisons";
 import { ComparisonType } from "@/utils/types/IMortgageTypes";
+import ComparisonSection from "./ComparisonSection";
 
 type MortgageType = {
   loanAmount: null | number,
@@ -67,7 +67,7 @@ export default function Calculations({ inputArray, comparisons }: { inputArray: 
       </div>
       {/*If we can't fetch comparisons, or if user has not selected every input, we don't show the comparisons. */}
       {comparisons && mortgageInfo.binding_period_in_months && mortgageInfo.loanAmount && mortgageInfo.mortgage_rate &&
-        <Comparisons
+        <ComparisonSection
           mortgage_rate={mortgageInfo.mortgage_rate}
           comparisons={comparisons}
           loanAmount={mortgageInfo.loanAmount}
