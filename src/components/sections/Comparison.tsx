@@ -13,7 +13,7 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
   const rate_diff = currentRate.mortgage_rate - mortgage_rate;
 
   return (
-    <li className="pointer-events-none select-none min-w-[90%] [@media(min-width:400px)]:min-w-[350px]">
+    <li className="pointer-events-none select-none min-w-[90%] [@media(min-width:450px)]:min-w-[350px]">
       <section className="py-3 px-4 bg-white border border-[#E8E8E8] w-full shadow-lg">
         <article className="w-full">
           <div className="flex">
@@ -27,7 +27,7 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
               </time>
             </header>
             <aside className="flex justify-end flex-grow text-right">
-              <p className="text-base [@media(min-width:400px)]:text-lg text-[#808080]">{cost} kr / mån</p>
+              <p className="text-base [@media(min-width:450px)]:text-lg text-[#808080]">{cost} kr / mån</p>
             </aside>
           </div>
           <footer className="flex justify-between mt-4">
