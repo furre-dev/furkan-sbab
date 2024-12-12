@@ -15,7 +15,7 @@ type MortgageType = {
   mortgage_rate: null | number
 }
 
-export default function Calculations({ inputArray, comparisons }: { inputArray: InputType[]; comparisons: ComparisonType[] }) {
+export default function Calculations({ inputArray, comparisons }: { inputArray: InputType[]; comparisons: ComparisonType[] | null }) {
   const [mortgageInfo, setMortgageInfo] = useState<MortgageType>({
     loanAmount: null,
     binding_period_in_months: null,
@@ -65,7 +65,8 @@ export default function Calculations({ inputArray, comparisons }: { inputArray: 
         </h2>
         <Image className="h-[6.5rem] object-cover" alt="Comparing icon" src={CompareSVG} />
       </div>
-      {mortgageInfo.binding_period_in_months && mortgageInfo.loanAmount && mortgageInfo.mortgage_rate &&
+      {/*If we can't fetch comparisons, or if user has not selected every input, we don't show the comparisons. */}
+      {comparisons && mortgageInfo.binding_period_in_months && mortgageInfo.loanAmount && mortgageInfo.mortgage_rate &&
         <Comparisons
           mortgage_rate={mortgageInfo.mortgage_rate}
           comparisons={comparisons}

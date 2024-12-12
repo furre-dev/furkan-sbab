@@ -1,25 +1,19 @@
 import { calculateMortgage } from "@/utils/calculateMortgage";
 import { numberWithSpaces } from "@/utils/convertingFuncs";
-import { ComparisonType } from "@/utils/types/IMortgageTypes";
+import { formatMonthsIntoYears } from "@/utils/formatMonthsIntoYears";
+import { ComparisonRate, ComparisonType } from "@/utils/types/IMortgageTypes";
 import Image from "next/image";
 
-export default function Comparison({ bank_data, loanAmount, binding_period, mortgage_rate }: { bank_data: ComparisonType, loanAmount: number, binding_period: number, mortgage_rate: number }) {
-
-  const currentRate = bank_data.rates.find((rate) => rate.binding_period_in_months === binding_period);
-
-
-
-  if (!currentRate || currentRate.mortgage_rate < mortgage_rate) {
-    return null;
-  }
+export default function Comparison({ bank_data, currentRate, loanAmount, mortgage_rate }: { bank_data: ComparisonType, currentRate: ComparisonRate, loanAmount: number, mortgage_rate: number }) {
 
   const costPerMonth = calculateMortgage(loanAmount, currentRate.mortgage_rate);
-  const cost = costPerMonth ? numberWithSpaces(costPerMonth) : "-";
+  const cost = numberWithSpaces(costPerMonth);
 
+  //percent difference between SBAB mortgage and the compared bank mortgage.
   const rate_diff = currentRate.mortgage_rate - mortgage_rate;
 
   return (
-    <li>
+    <li className="pointer-events-none select-none">
       <section className="py-3 px-4 bg-white border border-[#E8E8E8] min-w-[350px] shadow-lg">
         <article className="w-full">
           <div className="flex">
@@ -44,14 +38,14 @@ export default function Comparison({ bank_data, loanAmount, binding_period, mort
               <output className="block font-black text-4xl">
                 {currentRate.mortgage_rate}%
               </output>
-              <p className="m-0 -mt-1 text-[#D81B1B] text-sm">+{Math.ceil(rate_diff * 100) / 100}%</p>
+              <p className="m-0 -mt-1 text-[#D81B1B] text-sm font-black">+{Math.ceil(rate_diff * 100) / 100}%</p>
             </section>
             <section className="w-2/4">
               <label className="font-extralight text-sm text-[#808080]">
                 Bindningstid
               </label>
               <output className="block font-black text-4xl">
-                {currentRate.binding_period_in_months} mån
+                {formatMonthsIntoYears(currentRate.binding_period_in_months)}
               </output>
             </section>
           </footer>
