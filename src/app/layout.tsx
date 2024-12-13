@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={sbabFont.className}>{children}</body>
+      <body className={`${sbabFont.className} bg-white dark:bg-black`}>{children}</body>
     </html>
   );
 }

@@ -14,25 +14,25 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
 
   return (
     <li className="pointer-events-none select-none min-w-[90%] [@media(min-width:450px)]:min-w-[350px]">
-      <section className="py-3 px-4 bg-white border border-[#E8E8E8] w-full shadow-lg">
-        <article className="w-full">
+      <section className="py-3 px-4 bg-white dark:bg-[#0f0f0f] border border-[#E8E8E8] dark:border-[#353535] w-full shadow-lg">
+        <article className="w-full relative">
           <div className="flex">
             <figure className="min-w-12 h-12 rounded-full bg-black overflow-hidden" aria-hidden="true">
               <Image width={100} height={100} src={bank_data.image_url} alt={`${bank_data.bank_name} logga`} className="w-full h-full" />
             </figure>
             <header className="max-w-28 ml-2">
               <h5 className="font-semibold text-sm">{bank_data.bank_name}</h5>
-              <time className="text-[11px] text-[#616161] block" dateTime="2024-11-30">
+              <time className="text-[11px] text-[#616161] dark:text-[#9c9c9c] block" dateTime="2024-11-30">
                 Senast uppdaterad {currentRate.last_updated}
               </time>
             </header>
-            <aside className="flex justify-end flex-grow text-right">
-              <p className="text-base [@media(min-width:450px)]:text-lg text-[#808080]">{cost} kr / mån</p>
+            <aside className="absolute top-0 right-0">
+              <p className="text-base [@media(min-width:450px)]:text-lg text-[#808080] dark:text-[#9c9c9c]">{cost} kr / mån</p>
             </aside>
           </div>
           <footer className="flex justify-between mt-4">
             <section className="w-2/4">
-              <label className="font-extralight text-sm text-[#808080]">
+              <label className="font-extralight text-sm text-[#808080] dark:text-[#9c9c9c]">
                 Räntekostnad
               </label>
               <output className="block font-black text-4xl">
@@ -41,7 +41,7 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
               <p className="m-0 -mt-1 text-[#D81B1B] text-sm font-black">+{Math.ceil(rate_diff * 100) / 100}%</p>
             </section>
             <section className="w-2/4">
-              <label className="font-extralight text-sm text-[#808080]">
+              <label className="font-extralight text-sm text-[#808080] dark:text-[#9c9c9c]">
                 Bindningstid
               </label>
               <output className="block font-black text-4xl">

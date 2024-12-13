@@ -36,7 +36,7 @@ export default function DefaultInput(props: InputType) {
               numberInputOnChange(e.target.value)
             }}
             placeholder="2 000 000"
-            className=" border border-gray-400 p-2 w-full" />
+            className=" border border-[#999999] p-2 w-full dark:bg-black" />
         </div>
       </div>)
   }
@@ -47,7 +47,7 @@ export default function DefaultInput(props: InputType) {
         <label className="font-bold">{props.label}</label>
         <select
           onChange={(e) => props.onChange && props.onChange(props.options[e.target.selectedIndex - 1])}
-          className="border border-gray-400 p-2 w-full md:max-w-[15rem]">
+          className="border border-[#999999] dark:bg-black p-2 w-full md:max-w-[15rem]">
           <option
             selected
             disabled

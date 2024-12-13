@@ -32,13 +32,15 @@ export default function ComparisonSection({ comparisons, loanAmount, binding_per
     <>
       <hr className="mt-10 mb-8 mt:my-4" />
       <h4 className="font-semibold text-2xl">Jämför vår ränta med andra banker</h4>
-      <ul className="flex mt-6 space-x-2 [@media(min-width:450px)]:space-x-5 pb-4 overflow-scroll relative
+      <ul className="flex mt-6 space-x-2 [@media(min-width:450px)]:space-x-5 pb-4 overflow-x-scroll relative
         [&::-webkit-scrollbar]:h-2
         [&::-webkit-scrollbar]:z-40
         [&::-webkit-scrollbar-track]:rounded-full
         [&::-webkit-scrollbar-thumb]:rounded-full
       [&::-webkit-scrollbar-thumb]:bg-gray-300
+      dark:[&::-webkit-scrollbar-thumb]:bg-gray-700
         [&::-webkit-scrollbar-thumb]:z-40
+        [&::-webkit-scrollbar-track]:bg-transparent
         dark:[&::-webkit-scrollbar-track]:bg-transparent"
         {...events}
         ref={ref}
