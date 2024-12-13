@@ -8,8 +8,15 @@ export async function getInputOptions() {
     const sbab_mortgage_rates = await fetch("https://developer.sbab.se/sandbox/api/interest-rates/2.0/mortgage-rates");
     const sbab_response: IMortgageTypes | null = await sbab_mortgage_rates.json();
 
-    const comparison_morgage_rates = await fetch("https://sbab-api.onrender.com");
-    const comparison_response: ComparisonType[] | null = await comparison_morgage_rates.json();
+    let comparison_response: ComparisonType[] | null = null;
+    //nested try-wrap is for not breaking the app if we can't fetch rates from other banks. We still want to run the app without the other banks' rates.
+    try {
+      const comparison_morgage_rates = await fetch("https://sbab-api.onrender.com");
+      comparison_response = await comparison_morgage_rates.json();
+    } catch (e) {
+      console.error("Could not get comparing banks data.")
+    }
+
 
     //Error kommer att returnas ifall API responsen är okej men att vi inte får ut några mortgage_rates från API. Eller att mortgage_rates har längd av 0.
     if (!sbab_response) {

@@ -14,7 +14,7 @@ export default function DefaultInput(props: InputType) {
 
   const numberInputOnChange = (input: string) => {
     const inputToNumber = stringNumberToNumber(input)
-    const shownNumber = numberWithSpaces(inputToNumber)
+    const shownNumber = numberWithSpaces(inputToNumber, true)
 
     //if shownNumber = NaN then render empty string
     //detta kommer att göra så att användare aldrig får NaN i input fältet och ingen användare kommer att kunna skriva in något annat än en bokstav.

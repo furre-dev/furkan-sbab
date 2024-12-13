@@ -6,17 +6,12 @@ import { useState } from "react";
 import CompareSVG from "@/public/assets/images/Compare.svg"
 import Image from "next/image";
 import { numberWithSpaces } from "@/utils/stringsAndNumbers";
-import { ComparisonType } from "@/utils/types/IMortgageTypes";
+import { ComparisonType, MortgageStateType } from "@/utils/types/IMortgageTypes";
 import ComparisonSection from "./ComparisonSection";
 
-type MortgageType = {
-  loanAmount: null | number,
-  binding_period_in_months: null | number,
-  mortgage_rate: null | number
-}
 
 export default function Calculations({ inputArray, comparisons }: { inputArray: InputType[]; comparisons: ComparisonType[] | null }) {
-  const [mortgageInfo, setMortgageInfo] = useState<MortgageType>({
+  const [mortgageInfo, setMortgageInfo] = useState<MortgageStateType>({
     loanAmount: null,
     binding_period_in_months: null,
     mortgage_rate: null
@@ -31,17 +26,14 @@ export default function Calculations({ inputArray, comparisons }: { inputArray: 
     })
   }
 
-  function handleMortgageInput(mortgage: {
-    binding_period_in_months: number;
-    mortgage_rate: number;
-  }) {
+  function handleMortgageInput(mortgage: { binding_period_in_months: number; mortgage_rate: number; }) {
     setMortgageInfo((prev) => {
       return { ...prev, binding_period_in_months: mortgage.binding_period_in_months, mortgage_rate: mortgage.mortgage_rate }
     })
   }
 
   const costPerMonth = calculateMortgage(mortgageInfo.loanAmount, mortgageInfo.mortgage_rate);
-  const cost = costPerMonth ? numberWithSpaces(costPerMonth) : "-"
+  const costWithSpaces = costPerMonth ? numberWithSpaces(costPerMonth) : "-"
 
   return (
     <>
@@ -61,17 +53,22 @@ export default function Calculations({ inputArray, comparisons }: { inputArray: 
       <hr className="mt-4 mb-3" />
       <div className="flex flex-col-reverse md:flex-row justify-between items-center">
         <h2 className="font-extrabold text-5xl md:text-6xl mt-10">
-          {`${cost} kr / mån`}
+          {`${costWithSpaces} kr / mån`}
         </h2>
         <Image className="h-[6.5rem] object-cover" alt="Comparing icon" src={CompareSVG} />
       </div>
       {/*If we can't fetch comparisons, or if user has not selected every input, we don't show the comparisons. */}
-      {comparisons && mortgageInfo.binding_period_in_months && mortgageInfo.loanAmount && mortgageInfo.mortgage_rate &&
-        <ComparisonSection
+      {comparisons &&
+        mortgageInfo.loanAmount &&
+        mortgageInfo.binding_period_in_months &&
+        mortgageInfo.mortgage_rate &&
+        (<ComparisonSection
           mortgage_rate={mortgageInfo.mortgage_rate}
           comparisons={comparisons}
           loanAmount={mortgageInfo.loanAmount}
-          binding_period={mortgageInfo.binding_period_in_months} />
+          binding_period={mortgageInfo.binding_period_in_months}
+        />
+        )
       }
     </>
   )

@@ -1,6 +1,7 @@
 //This function adds spaces in numbers, for example "2000" into "2 000" and so on
-export function numberWithSpaces(input: number | null) {
-  if (!input) return "-"
+export function numberWithSpaces(input: number | null, allowClear?: boolean) {
+  //If allowClear, it will return clear(null), else it will return the string "-".
+  if (!input) return allowClear ? null : "-";
 
   return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }

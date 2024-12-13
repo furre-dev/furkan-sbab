@@ -21,7 +21,7 @@ export default function ComparisonSection({ comparisons, loanAmount, binding_per
     //if currentRate is valid and if SBAB mortgage is lower than Banks mortgage, retrun the Comparison.
     return currentRate && currentRate.mortgage_rate > mortgage_rate ? (
       <Comparison
-        key={bank_data.bank_name}
+        key={bank_data.bank_name + currentRate.binding_period_in_months}
         currentRate={currentRate}
         bank_data={bank_data}
         loanAmount={loanAmount}
