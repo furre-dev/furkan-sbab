@@ -14,7 +14,7 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
 
   return (
     <li className="pointer-events-none select-none min-w-[90%] [@media(min-width:450px)]:min-w-[350px]">
-      <section className="py-3 px-4 bg-white dark:bg-[#0f0f0f] border border-[#E8E8E8] dark:border-[#353535] w-full shadow-lg">
+      <section className="py-3 px-4 bg-white dark:bg-[#050505] border border-[#E8E8E8] dark:border-[#353535] w-full shadow-lg">
         <article className="w-full relative">
           <div className="flex">
             <figure className="w-12 h-12 rounded-full bg-black overflow-hidden" aria-hidden="true">
