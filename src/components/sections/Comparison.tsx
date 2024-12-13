@@ -17,8 +17,8 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
       <section className="py-3 px-4 bg-white dark:bg-[#0f0f0f] border border-[#E8E8E8] dark:border-[#353535] w-full shadow-lg">
         <article className="w-full relative">
           <div className="flex">
-            <figure className="min-w-12 h-12 rounded-full bg-black overflow-hidden" aria-hidden="true">
-              <Image width={100} height={100} src={bank_data.image_url} alt={`${bank_data.bank_name} logga`} className="w-full h-full" />
+            <figure className="w-12 h-12 rounded-full bg-black overflow-hidden" aria-hidden="true">
+              <Image width={1000} height={1000} src={bank_data.image_url} alt={`${bank_data.bank_name} logga`} className="w-full h-full" />
             </figure>
             <header className="max-w-28 ml-2">
               <h5 className="font-semibold text-sm">{bank_data.bank_name}</h5>
