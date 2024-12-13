@@ -52,7 +52,7 @@ export default function Calculations({ inputArray, comparisons }: { inputArray: 
       <h2 className="mt-16 text-2xl font-semibold">Din räntekostnad - {mortgageInfo.mortgage_rate}%</h2>
       <hr className="mt-4 mb-3" />
       <div className="flex flex-col-reverse md:flex-row justify-between items-center">
-        <h2 className="font-extrabold text-5xl md:text-6xl mt-10">
+        <h2 className="font-extrabold text-5xl md:text-6xl mt-10 text-center">
           {`${costWithSpaces} kr / mån`}
         </h2>
         <Image className="h-[6.5rem] object-cover" alt="Comparing icon" src={CompareSVG} />
