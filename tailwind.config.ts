@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fadein: {
+          '0%': { transform: 'translateY(10px)', opacity: "0%" },
+          '100%': { transform: 'translateY(0px)', opacity: "100%" },
+        }
+      },
+      animation: {
+        fadein: "fadein 1s ease-in-out forwards"
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
