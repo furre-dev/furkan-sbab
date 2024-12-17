@@ -23,7 +23,7 @@ bun dev
 Öppna sedan [http://localhost:3000](http://localhost:3000) på din webbläsare för att se resultatet.
 
 # Största skillnader mellan v1 och v2:
-1. Räntejämförelse med andra banker, med custom Web Scraping w/ AI och API endpoint
+1. Räntejämförelse med andra banker, med custom Node backend. Byggt med hjälp av AI powered Web Scraping.
 2. Animationer
 3. Mer Semantisk HTML
 4. Dark Mode
