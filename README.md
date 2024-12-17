@@ -21,3 +21,6 @@ bun dev
 ```
 
 Öppna sedan [http://localhost:3000](http://localhost:3000) på din webbläsare för att se resultatet.
+
+# Största skillnader från den förra versionen:
+## 1. Räntejämförelse med andra banker, med custom Web Scraping w/ AI och API endpoint
