@@ -29,7 +29,7 @@ export default function ComparisonSection({ comparisons, loanAmount, binding_per
   }).filter((item) => item) as JSX.Element[]; //This filtering will remove any NULL elements, (as JSX.Element[]) to make TypeScript understand.
 
   return (
-    <>
+    <section className="animate-fadein">
       <hr className="mt-10 mb-8 mt:my-4" />
       <h4 className="font-semibold text-2xl">Jämför vår ränta med andra banker</h4>
       <ul className="flex mt-6 space-x-2 [@media(min-width:450px)]:space-x-5 pb-4 overflow-x-scroll relative
@@ -52,6 +52,6 @@ export default function ComparisonSection({ comparisons, loanAmount, binding_per
           </p>
         }
       </ul>
-    </>
+    </section>
   )
 }

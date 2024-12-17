@@ -4,6 +4,7 @@ import { numberWithSpaces, stringNumberToNumber } from "@/utils/stringsAndNumber
 import { InputType } from "@/utils/inputTypes";
 import { useState } from "react";
 import { formatMonthsIntoYears } from "@/utils/formatMonthsIntoYears";
+import { decimalToComma } from "@/utils/decimalToComma";
 
 
 export default function DefaultInput(props: InputType) {
@@ -57,7 +58,7 @@ export default function DefaultInput(props: InputType) {
             //This function will return "X mån" if X is less than 12, and "X år" if X is more than 12.
             const bindingPeriod = formatMonthsIntoYears(option.binding_period_in_months)
             return (
-              <option key={i}>{`${bindingPeriod} - ${option.mortgage_rate}%`}</option>
+              <option key={i}>{`${bindingPeriod} - ${decimalToComma(option.mortgage_rate)}%`}</option>
             )
           })}
         </select>

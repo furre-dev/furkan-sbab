@@ -1,9 +1,9 @@
 import { InputType } from "./inputTypes";
 import { ComparisonType, IMortgageTypes } from "./types/IMortgageTypes";
 
-const defaultError = { inputArray: null, comparisons: null, error: { message: "Could not get mortgage rates", source: "getInputOptions()" } };
+const defaultError = { mortgage_rates: null, comparisons: null, error: { message: "Could not get mortgage rates", source: "getInputOptions()" } };
 
-export async function getInputOptions() {
+export async function getMortgageRates() {
   try {
     const sbab_mortgage_rates = await fetch("https://developer.sbab.se/sandbox/api/interest-rates/2.0/mortgage-rates");
     const sbab_response: IMortgageTypes | null = await sbab_mortgage_rates.json();
@@ -30,7 +30,7 @@ export async function getInputOptions() {
       { label: "Välj bindningstid", type: "select", options: sbab_response.mortgage_rates },
     ];
 
-    return { inputArray: inputArray, comparisons: comparison_response, error: null }
+    return { mortgage_rates: inputArray, comparisons: comparison_response, error: null }
   } catch (err) {
     return defaultError
   }

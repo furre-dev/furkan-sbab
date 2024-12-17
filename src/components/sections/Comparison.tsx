@@ -1,5 +1,6 @@
 import { calculateMortgage } from "@/utils/calculateMortgage";
 import { numberWithSpaces } from "@/utils/convertingFuncs";
+import { decimalToComma } from "@/utils/decimalToComma";
 import { formatMonthsIntoYears } from "@/utils/formatMonthsIntoYears";
 import { ComparisonRate, ComparisonType } from "@/utils/types/IMortgageTypes";
 import Image from "next/image";
@@ -36,9 +37,9 @@ export default function Comparison({ bank_data, currentRate, loanAmount, mortgag
                 Räntekostnad
               </label>
               <output className="block font-black text-4xl">
-                {currentRate.mortgage_rate}%
+                {decimalToComma(currentRate.mortgage_rate)}%
               </output>
-              <p className="m-0 -mt-1 text-[#D81B1B] text-sm font-black">+{Math.ceil(rate_diff * 100) / 100}%</p>
+              <p className="m-0 -mt-0.5 text-[#D81B1B] text-sm font-black">+{Math.ceil(rate_diff * 100) / 100}%</p>
             </section>
             <section className="w-2/4">
               <label className="font-extralight text-sm text-[#808080] dark:text-[#9c9c9c]">

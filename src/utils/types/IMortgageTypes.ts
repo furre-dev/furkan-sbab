@@ -1,4 +1,4 @@
-export type MortgageStateType = {
+export type MortgageInputType = {
     loanAmount: null | number,
     binding_period_in_months: null | number,
     mortgage_rate: null | number
